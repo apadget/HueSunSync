@@ -1,5 +1,7 @@
 from metno_locationforecast import Place, Forecast
 
+# https://520liyan.xyz/Rory-Sullivan/metno-locationforecast
+
 def getYRdata():
     trondheim = Place("Trondheim", 63.4228, 10.3911, 10)
     ny_forecast = Forecast(trondheim, "metno-locationforecast/2.0 https://github.com/apadget/HueSunSync")
