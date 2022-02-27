@@ -2,6 +2,7 @@ from suntime import Sun, SunTimeException
 
 # https://github.com/SatAgro/suntime/blob/master/suntime/suntime.py
 
+
 def location():
     latitude = 63.4225
     longitude = 10.3950

@@ -3,6 +3,7 @@ import json
 import requests
 import weather
 import sun
+import hue
 
 #def getYRdata():
 #    locationURL = https://api.met.no/weatherapi/nowcast/2.0/complete?altitude=10&lat=63.422881&lon=10.391192
@@ -20,6 +21,9 @@ def main():
     print(weather.getYRdata())
     print(sun.getsunrise())
     print(sun.getsundown())
+    hue.bridgestate()
+    hue.changebrightness("Hue lightstrip", 254)
+    hue.changetemp("Hue lightstrip", 250)
     #data = getYRdata()
     #print(data)
     #dataParsed = parseYRdata(data)
