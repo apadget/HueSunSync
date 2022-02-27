@@ -1,15 +1,14 @@
 from metno_locationforecast import Place, Forecast
+import json
+import requests
+import weather
+import sun
 
-def getYRdata():
+#def getYRdata():
 #    locationURL = https://api.met.no/weatherapi/nowcast/2.0/complete?altitude=10&lat=63.422881&lon=10.391192
-#    urlContent = requests.get("https://api.met.no/weatherapi/nowcast/2.0/complete?altitude=1&lat=63.422&lon=10.391")
-#    text = urlContent.text
-    trondheim = Place("Trondheim", 63.4228, 10.3911, 1)
-    ny_forecast = Forecast(trondheim, "metno-locationforecast/2.0 https://github.com/apadget/HueSunSync")
-    ny_forecast.update()
-    print(ny_forecast)
-    ny_forecast.update()
-    return
+#    urlContent = requests.get("https://github.com/apadget/HueSunSync", "https://api.met.no/weatherapi/sunrise/2.0/.xml?date=2022-02-26&lat=63.4228&lon=10.3911&offset=%2B01%3A00")
+#    data = urlContent.json()
+
 
 #def parseYRdata(dump):
 
@@ -18,7 +17,9 @@ def getYRdata():
 
 
 def main():
-    getYRdata()
+    print(weather.getYRdata())
+    print(sun.getsunrise())
+    print(sun.getsundown())
     #data = getYRdata()
     #print(data)
     #dataParsed = parseYRdata(data)
