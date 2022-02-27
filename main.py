@@ -4,6 +4,7 @@ import requests
 import weather
 import sun
 import hue
+import time
 
 #def getYRdata():
 #    locationURL = https://api.met.no/weatherapi/nowcast/2.0/complete?altitude=10&lat=63.422881&lon=10.391192
@@ -15,19 +16,38 @@ import hue
 
 # def updateYRdata():
 # While loop getYRdata every 5 minutes
+def updatedata():
+    w = weather.getYRdata()
+    sd = sun.getsundown()
+    ss = sun.getsunrise()
+    return w, sd, ss
+
+
+def gettime():
+    t = time.localtime()
+    current_time = time.strftime("%H:%M", t)
+    return current_time
+
+def sunmath():
+    timenow = gettime()
+    if timenow < sun.getsunrise():
+        print("Mørkt før soloppgang")
+    elif timenow > sun.getsundown():
+        print("Mørkt etter solnedgang")
+    else:
+        print("Lyst ute")
+
 
 
 def main():
     print(weather.getYRdata())
     print(sun.getsunrise())
     print(sun.getsundown())
-    hue.bridgestate()
-    hue.changebrightness("Hue lightstrip", 254)
-    hue.changetemp("Hue lightstrip", 250)
-    #data = getYRdata()
-    #print(data)
-    #dataParsed = parseYRdata(data)
-    #print(dataParsed)
+    print(gettime())
+    sunmath()
+    #hue.bridgestate()
+    #hue.changebrightness("Hue lightstrip", 254)
+    #hue.changetemp("Hue lightstrip", 250)
 
 if __name__ == '__main__':
     main()
